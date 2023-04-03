@@ -58,7 +58,7 @@ class _ProductBody extends StatelessWidget {
                   child: IconButton(
                     onPressed: () async{
                       final picker = ImagePicker();
-                      final PickedFile? pickedFile = await picker.getImage(
+                      final XFile? pickedFile = await picker.pickImage(
                         source: ImageSource.camera,
                         imageQuality: 100
                         );
@@ -125,6 +125,7 @@ class _FormInfo extends StatelessWidget {
                 onChanged: (value) => product.name = value,
                 validator: (value) {
                   if (value == null || value.isEmpty) return 'El nombre es obligatorio';
+                  return null;
                 },
                 decoration: InputDecorations.authInput(
                   hintText: 'Nombre del producto',
