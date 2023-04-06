@@ -4,7 +4,7 @@ class CardContainer extends StatelessWidget {
 
   final Widget child;
 
-  const CardContainer({required this.child, super.key});
+  const CardContainer({Key key, this.child}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

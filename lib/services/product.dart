@@ -10,14 +10,14 @@ class ProductServices extends ChangeNotifier{
 
   final String _baseUrl = 'fluttersapp-f2da6-default-rtdb.firebaseio.com';
   final List<Product> products = [];
-  late Product selectedProduct;
+  Product selectedProduct;
 
   final storage = const FlutterSecureStorage();
   
   bool loading = true;
   bool save = false;
 
-  File? newPicture;
+  File newPicture;
 
   ProductServices(){
     loadProduct();
@@ -75,7 +75,7 @@ class ProductServices extends ChangeNotifier{
     final index = products.indexWhere((element) => element.id == product.id);
     products[index] = product;
 
-    return product.id!;
+    return product.id;
 
   }
 
@@ -91,7 +91,7 @@ class ProductServices extends ChangeNotifier{
 
     //products.add(product);
 
-    return product.id!;
+    return product.id;
 
   }
 
@@ -104,7 +104,7 @@ class ProductServices extends ChangeNotifier{
     notifyListeners();
   }
 
-  Future<String?> uploadImg() async{
+  Future<String> uploadImg() async{
     if(newPicture == null) return null;
 
     save = true;
@@ -113,7 +113,7 @@ class ProductServices extends ChangeNotifier{
     final url = Uri.parse('https://api.cloudinary.com/v1_1/dvkwkczpb/image/upload?upload_preset=zj16x4jq');
 
     final imageRequest = http.MultipartRequest('POST', url);
-    final file = await http.MultipartFile.fromPath('file', newPicture!.path);
+    final file = await http.MultipartFile.fromPath('file', newPicture.path);
 
     imageRequest.files.add(file);
 

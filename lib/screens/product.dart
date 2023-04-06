@@ -9,7 +9,7 @@ import 'package:provider/provider.dart';
 
 class ProductScreen extends StatelessWidget {
    
-  const ProductScreen({Key? key}) : super(key: key);
+  const ProductScreen({Key key}) : super(key: key);
   
   @override
   Widget build(BuildContext context) {
@@ -26,7 +26,7 @@ class ProductScreen extends StatelessWidget {
 
 class _ProductBody extends StatelessWidget {
   const _ProductBody({
-    required this.productServices,
+    @required this.productServices,
   });
 
   final ProductServices productServices;
@@ -58,7 +58,7 @@ class _ProductBody extends StatelessWidget {
                   child: IconButton(
                     onPressed: () async{
                       final picker = ImagePicker();
-                      final XFile? pickedFile = await picker.pickImage(
+                      final XFile pickedFile = await picker.pickImage(
                         source: ImageSource.camera,
                         imageQuality: 100
                         );
@@ -85,7 +85,7 @@ class _ProductBody extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         onPressed: productServices.save ? null : () async{
           if(!productForm.validForm()) return;
-          final String? imageUrl = await productServices.uploadImg();
+          final String imageUrl = await productServices.uploadImg();
           if(imageUrl != null) productForm.product.picture = imageUrl;
           await productServices.saveProduct(productForm.product);
           Navigator.pushNamed(context, 'home');

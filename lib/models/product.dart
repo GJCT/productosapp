@@ -4,24 +4,26 @@
 
 import 'dart:convert';
 
+import 'package:flutter/material.dart';
+
 //Map<String, Product> productFromJson(String str) => Map.from(json.decode(str)).map((k, v) => MapEntry<String, Product>(k, Product.fromJson(v)));
 
 //String productToJson(Map<String, Product> data) => json.encode(Map.from(data).map((k, v) => MapEntry<String, dynamic>(k, v.toJson())));
 
 class Product {
     Product({
-        required this.available,
-        required this.name,
+        @required this.available,
+        @required this.name,
         this.picture,
-        required this.price,
+        @required this.price,
         this.id,
     });
 
     bool available;
     String name;
-    String? picture;
+    String picture;
     double price;
-    String? id;
+    String id;
 
     factory Product.fromJson(String str) => Product.fromMap(json.decode(str));
 

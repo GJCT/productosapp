@@ -8,6 +8,6 @@ class NotificationsService {
       content: Text(message, style: const TextStyle(color: Colors.white, fontSize: 22))
     );
 
-    messanger.currentState!.showSnackBar(snackBar);
+    messanger.currentState.showSnackBar(snackBar);
   }
 }

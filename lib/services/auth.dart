@@ -13,7 +13,7 @@ class AuthServices extends ChangeNotifier{
   final storage = const FlutterSecureStorage();
 
   //Retornar algo es un error, de lo contrario status 200 
-  Future<String?> createUser(String email, String password) async{
+  Future<String> createUser(String email, String password) async{
     final Map<String, dynamic> authData = {
       'email': email,
       'password': password,
@@ -37,7 +37,7 @@ class AuthServices extends ChangeNotifier{
     }
   }
 
-  Future<String?> loginUser(String email, String password) async{
+  Future<String> loginUser(String email, String password) async{
     final Map<String, dynamic> authData = {
       'email': email,
       'password': password,

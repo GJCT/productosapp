@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 class InputDecorations {
   static InputDecoration authInput({
-    required String hintText,
-    required String labelText,
-    IconData? prefixIcon
+    @required String hintText,
+    @required String labelText,
+    IconData prefixIcon
   }) {
     return InputDecoration(
       enabledBorder: const UnderlineInputBorder(

@@ -5,7 +5,7 @@ import 'package:productosapp/services/auth.dart';
 
 class CheckAuthScreen extends StatelessWidget {
    
-  const CheckAuthScreen({Key? key}) : super(key: key);
+  const CheckAuthScreen({Key key}) : super(key: key);
   
   @override
   Widget build(BuildContext context) {

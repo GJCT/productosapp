@@ -4,7 +4,7 @@ class AuthBack extends StatelessWidget {
 
   final Widget child;
   
-  const AuthBack({required this.child ,super.key});
+  const AuthBack({Key key, this.child}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

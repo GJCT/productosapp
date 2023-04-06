@@ -7,7 +7,7 @@ import 'package:productosapp/screens/screens.dart';
 void main() => runApp(const AppState());
 
 class AppState extends StatelessWidget {
-  const AppState({super.key});
+  const AppState({Key key}) : super(key: key);
 
 
   @override
@@ -23,7 +23,7 @@ class AppState extends StatelessWidget {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

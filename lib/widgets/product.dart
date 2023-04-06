@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:productosapp/models/models.dart';
 
 class ProductCard extends StatelessWidget {
-  const ProductCard({super.key, required this.product});
+  const ProductCard({Key key, this.product}) : super(key: key);
 
   final Product product;
 
@@ -19,7 +19,7 @@ class ProductCard extends StatelessWidget {
           alignment: Alignment.bottomLeft,
           children: [
             _Image(product.picture),
-            _Details(product.name, product.id!),
+            _Details(product.name, product.id),
             Positioned(
               top: 0,
               right: 0,
@@ -134,7 +134,7 @@ class _Details extends StatelessWidget {
 
 class _Image extends StatelessWidget {
 
-  final String? url;
+  final String url;
 
   const _Image(this.url);
 
@@ -152,7 +152,7 @@ class _Image extends StatelessWidget {
         )
         :FadeInImage(
           placeholder: const AssetImage('assets/jar-loading.gif'),
-          image: NetworkImage(url!),
+          image: NetworkImage(url),
           fit: BoxFit.cover,
         ),
       ),

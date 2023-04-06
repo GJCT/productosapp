@@ -7,7 +7,7 @@ import 'package:provider/provider.dart';
 
 class LoginScreen extends StatelessWidget {
    
-  const LoginScreen({Key? key}) : super(key: key);
+  const LoginScreen({Key key}) : super(key: key);
   
   @override
   Widget build(BuildContext context) {
@@ -117,7 +117,7 @@ class _LoginForm extends StatelessWidget {
 
                 loginForm.loading = true;
 
-                final String? errorMessage = await authService.loginUser(loginForm.email, loginForm.password);
+                final String errorMessage = await authService.loginUser(loginForm.email, loginForm.password);
 
                 if(errorMessage == null){
                   Navigator.pushReplacementNamed(context, 'home');
